@@ -1,14 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Mail,
-  MessageSquare,
-  Send,
-  MapPin,
-  Sparkles,
-  Linkedin,
-} from "lucide-react";
+import { Mail, MessageSquare, Send, MapPin, Sparkles } from "lucide-react";
+import { LinkedinIcon } from "@/components/icons";
 import { Button } from "@/components/ui/Button";
 
 export default function ContactPage() {
@@ -28,8 +22,8 @@ export default function ContactPage() {
     {
       icon: Mail,
       label: "Email",
-      value: "sdcreativity12@gmail.com",
-      href: "mailto:sdcreativity12@gmail.com",
+      value: "iamsayan@pm.me",
+      href: "mailto:iamsayan@pm.me",
     },
     {
       icon: MessageSquare,
@@ -38,7 +32,7 @@ export default function ContactPage() {
       href: "https://sayandatta.co.in",
     },
     {
-      icon: Linkedin,
+      icon: LinkedinIcon,
       label: "LinkedIn",
       value: "linkedin.com/in/meetsayan",
       href: "https://www.linkedin.com/in/meetsayan/",

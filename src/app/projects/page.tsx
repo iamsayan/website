@@ -2,19 +2,31 @@ import { Metadata } from "next";
 import { customProjects, CustomProject } from "@/data/custom-projects";
 import { ProjectType as GitHubProjectType } from "@/components/ProjectCard";
 import {
-  Github,
   ExternalLink,
   Star,
   GitFork,
   Sparkles,
   ArrowUpRight,
 } from "lucide-react";
+import { GithubIcon } from "@/components/icons";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "A collection of custom client work and open source repositories by Sayan Datta.",
+    "Explore featured projects, WordPress plugins, SaaS products, and open source repositories by Sayan Datta.",
+  alternates: { canonical: "/projects" },
+  keywords: [
+    "Sayan Datta projects",
+    "WordPress plugins",
+    "Open source repositories",
+    "WP Last Modified Info",
+    "RevivePress",
+    "Full Stack Developer portfolio",
+  ],
+  openGraph: {
+    url: "/projects",
+  },
 };
 
 async function getGitHubProjects(): Promise<GitHubProjectType[]> {
@@ -57,7 +69,7 @@ function CustomCard({
                 className="p-2 rounded-lg hover:bg-accent text-muted-foreground hover:text-foreground transition-all"
                 title="Source"
               >
-                <Github className="w-4 h-4" />
+                <GithubIcon className="w-4 h-4" />
               </a>
             )}
             {project.homepage && (
@@ -110,7 +122,7 @@ function RepoCard({ project }: { project: GitHubProjectType }) {
             className="p-1.5 rounded-md hover:bg-accent text-muted-foreground hover:text-foreground transition-all"
             title="Source"
           >
-            <Github className="w-3.5 h-3.5" />
+            <GithubIcon className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>
@@ -180,7 +192,7 @@ export default async function ProjectsPage() {
 
           <div className="flex items-center justify-between mb-8 sm:mb-10">
             <div className="flex items-center gap-3">
-              <Github className="w-5 h-5 text-foreground" />
+              <GithubIcon className="w-5 h-5 text-foreground" />
               <h2 className="text-xl sm:text-2xl font-heading font-bold text-foreground">
                 Open Source
               </h2>

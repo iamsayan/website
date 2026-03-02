@@ -1,4 +1,5 @@
-import { Github, Star, GitFork, ExternalLink } from "lucide-react";
+import { Star, GitFork, ExternalLink } from "lucide-react";
+import { GithubIcon } from "@/components/icons";
 
 export interface ProjectType {
   id: number;
@@ -38,7 +39,7 @@ export function ProjectCard({ project }: { project: ProjectType }) {
             className="text-muted-foreground hover:text-white transition-colors"
             title="View source"
           >
-            <Github className="w-5 h-5" />
+            <GithubIcon className="w-5 h-5" />
           </a>
         </div>
       </div>

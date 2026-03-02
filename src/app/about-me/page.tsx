@@ -17,7 +17,18 @@ import {
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn more about Sayan Datta — Full Stack Developer, WordPress Expert, and Open Source contributor from India.",
+    "Learn more about Sayan Datta — Full Stack Developer, WordPress Expert, and Open Source contributor from India with 7+ years of experience.",
+  alternates: { canonical: "/about-me" },
+  keywords: [
+    "Sayan Datta",
+    "About Sayan Datta",
+    "Full Stack Developer India",
+    "WordPress Expert",
+    "Software Engineer",
+  ],
+  openGraph: {
+    url: "/about-me",
+  },
 };
 
 const timeline = [
@@ -152,7 +163,7 @@ const interests = [
 
 export default function AboutPage() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       {/* Cross-dot pattern bg */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-size-[24px_24px] opacity-30 pointer-events-none" />
       {/* Decorative ring */}

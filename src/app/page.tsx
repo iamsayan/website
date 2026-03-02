@@ -337,7 +337,7 @@ export default function Home() {
                 desc: "WordPress plugin to show last modified date with 20k+ active installs.",
                 lang: "PHP / WordPress",
                 num: "01",
-              },,
+              },
               {
                 name: "RevivePress",
                 desc: "Republish and clone old posts with 7k+ active installs and a premium version.",

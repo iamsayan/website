@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sayan Datta — Developer Portfolio
 
-## Getting Started
+A modern, performant personal portfolio website built with **Next.js 16**, **React 19**, and **Tailwind CSS 4**. Features dark/light theming, smooth animations, and a fully responsive design.
 
-First, run the development server:
+🔗 **Live:** [sayandatta.co.in](https://sayandatta.co.in)
+
+---
+
+## ✨ Features
+
+- **Dark / Light Theme** — Seamless toggling powered by `next-themes`
+- **Responsive Design** — Mobile-first layouts that look great on every screen size
+- **Smooth Animations** — Page transitions and micro-interactions via Framer Motion
+- **SEO Optimized** — Proper meta tags, semantic HTML, and metadata API
+- **Modern Typography** — Inter (body) + Outfit (headings) from Google Fonts
+- **Component-Based** — Clean, reusable React component architecture
+
+## 📄 Pages
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Home | `/` | Hero, stats, services, skills, featured projects, and CTA |
+| Projects | `/projects` | Showcase of open-source and professional work |
+| About Me | `/about-me` | Background, experience, and education |
+| Blog | `/blog` | Articles and technical writing |
+| Contact | `/contact` | Contact form and social links |
+
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Framework** | Next.js 16 (App Router) |
+| **Language** | TypeScript 5 |
+| **UI** | React 19, Tailwind CSS 4 |
+| **Animations** | Framer Motion |
+| **Icons** | Lucide React |
+| **Theming** | next-themes |
+| **Utilities** | clsx, tailwind-merge |
+| **Linting** | ESLint 9 |
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                  # Next.js App Router pages
+│   ├── about-me/         # About page
+│   ├── blog/             # Blog page
+│   ├── contact/          # Contact page
+│   ├── projects/         # Projects page
+│   ├── globals.css       # Global styles & design tokens
+│   ├── layout.tsx        # Root layout (fonts, navbar, footer, theme)
+│   └── page.tsx          # Home page
+├── components/           # Reusable UI components
+│   ├── ui/               # Base UI primitives (Button, etc.)
+│   ├── Navbar.tsx        # Main navigation
+│   ├── Footer.tsx        # Site footer
+│   ├── ProjectCard.tsx   # Project display card
+│   ├── ThemeProvider.tsx  # Theme context provider
+│   └── ThemeToggle.tsx   # Dark/light mode toggle
+└── data/                 # Static data & content
+    └── custom-projects.ts # Project definitions
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** ≥ 18.x
+- **npm**, **yarn**, **pnpm**, or **bun**
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/iamsayan/developer-portfolio.git
+cd developer-portfolio
+
+# Install dependencies
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 🚢 Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is optimized for deployment on [Vercel](https://vercel.com). Simply connect your GitHub repo and deploy — no extra configuration needed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can also deploy to any platform that supports Next.js (Netlify, AWS, Docker, etc.).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 License
 
-## Deploy on Vercel
+This project is private and not licensed for redistribution.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with ☕ by **[Sayan Datta](https://sayandatta.co.in)**

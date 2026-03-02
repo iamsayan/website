@@ -1,11 +1,21 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Articles, tutorials, and thoughts on web development by Sayan Datta.",
+    "Articles, tutorials, and insights on web development, WordPress, Next.js, and software architecture by Sayan Datta.",
+  alternates: { canonical: "/blog" },
+  keywords: [
+    "Sayan Datta blog",
+    "Web development articles",
+    "Next.js tutorials",
+    "WordPress development",
+    "Software engineering blog",
+  ],
+  openGraph: {
+    url: "/blog",
+  },
 };
 
 const posts = [

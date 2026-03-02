@@ -1,22 +1,16 @@
 import Link from "next/link";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Heart,
-  ArrowUpRight,
-  Twitter,
-} from "lucide-react";
+import { Mail, Heart, ArrowUpRight } from "lucide-react";
+import { GithubIcon, LinkedinIcon, XTwitterIcon } from "@/components/icons";
 
 const socialLinks = [
-  { href: "https://github.com/iamsayan", icon: Github, label: "GitHub" },
+  { href: "https://github.com/iamsayan", icon: GithubIcon, label: "GitHub" },
   {
     href: "https://www.linkedin.com/in/meetsayan/",
-    icon: Linkedin,
+    icon: LinkedinIcon,
     label: "LinkedIn",
   },
-  { href: "https://x.com/jejeblocs", icon: Twitter, label: "X / Twitter" },
-  { href: "mailto:sdcreativity12@gmail.com", icon: Mail, label: "Email" },
+  { href: "https://x.com/im_sayaan", icon: XTwitterIcon, label: "X / Twitter" },
+  { href: "mailto:iamsayan@pm.me", icon: Mail, label: "Email" },
 ];
 
 const footerLinks = [
@@ -122,7 +116,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Sayan Datta. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-            Crafted with <Heart className="w-3 h-3 text-red-500 fill-red-500" />{" "}
+            Crafted with{" "}
+            <Heart className="w-3 h-3 text-red-500 fill-red-500 animate-pulse" />{" "}
             using Next.js & Tailwind CSS
           </p>
         </div>
