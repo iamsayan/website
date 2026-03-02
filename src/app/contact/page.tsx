@@ -1,22 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useState } from "react";
 import { Mail, MessageSquare, Send, MapPin, Sparkles } from "lucide-react";
 import { LinkedinIcon } from "@/components/icons";
 import { Button } from "@/components/ui/Button";
+import { sendContactEmail } from "./action";
 
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [state, formAction, isPending] = useActionState(sendContactEmail, {
+    success: false,
+  });
+  const [dismissed, setDismissed] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-    }, 1500);
-  };
+  const submitted = state.success && !dismissed;
 
   const contactInfo = [
     {
@@ -125,7 +121,7 @@ export default function ContactPage() {
                     respond within 24-48 hours.
                   </p>
                   <Button
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => setDismissed(true)}
                     variant="outline"
                     className="mt-2 sm:mt-4 rounded-2xl"
                   >
@@ -134,9 +130,14 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form
-                  onSubmit={handleSubmit}
+                  action={formAction}
                   className="space-y-4 sm:space-y-6 relative z-10"
                 >
+                  {state.error && (
+                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-sm font-medium">
+                      {state.error}
+                    </div>
+                  )}
                   <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                     <div className="space-y-1.5 sm:space-y-2">
                       <label
@@ -148,6 +149,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         id="name"
+                        name="name"
                         required
                         className="w-full bg-background border border-border rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base text-foreground placeholder-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all"
                         placeholder="John Doe"
@@ -163,6 +165,7 @@ export default function ContactPage() {
                       <input
                         type="email"
                         id="email"
+                        name="email"
                         required
                         className="w-full bg-background border border-border rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base text-foreground placeholder-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all"
                         placeholder="john@example.com"
@@ -180,6 +183,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       id="subject"
+                      name="subject"
                       required
                       className="w-full bg-background border border-border rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base text-foreground placeholder-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all"
                       placeholder="Project inquiry"
@@ -195,6 +199,7 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       required
                       rows={5}
                       className="w-full bg-background border border-border rounded-xl sm:rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base text-foreground placeholder-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all resize-none"
@@ -204,14 +209,12 @@ export default function ContactPage() {
 
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isPending}
                     size="lg"
                     className="w-full h-12 sm:h-14 text-sm sm:text-base rounded-2xl"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    {!isSubmitting && (
-                      <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                    )}
+                    {isPending ? "Sending..." : "Send Message"}
+                    {!isPending && <Send className="w-4 h-4 sm:w-5 sm:h-5" />}
                   </Button>
                 </form>
               )}
